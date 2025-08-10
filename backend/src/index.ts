@@ -233,7 +233,7 @@ app.post("/api/share",auth, async (req: AuthenticatedRequest, res) => {
         shareId:shareId,
         userId:req.userId,
     })
-    res.status(200).json({shareId:"http://localhost:5173/s/"+shareId});
+    res.status(200).json({shareId:process.env.FRONTEND_URL+"/s/"+shareId});
     console.log(share);
     }
     catch(e){
