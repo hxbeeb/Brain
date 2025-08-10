@@ -225,7 +225,7 @@ app.post("/api/share",auth, async (req: AuthenticatedRequest, res) => {
     const username = req.username;
     const user=await Share.findOne({userId:req.userId});
     if(user){
-        return res.status(200).json({shareId:"http://localhost:5173/s/"+user.shareId});
+        return res.status(200).json({shareId:process.env.FRONTEND_URL+"/s/"+user.shareId});
     }
     const shareId=Math.random().toString(36).substring(2,15);
     try{
